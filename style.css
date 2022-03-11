@@ -24,6 +24,16 @@
 
 }
 
-.pixel-specs:hover {
-    background-color: #3374C2;
+.turn-orange {
+    background-color: orange;
 }
+
+/* .pixel-specs .pixel-on {
+
+    background-color: #3374C2;
+
+} */
+
+/* .pixel-specs:hover {
+    background-color: #3374C2;
+} */
