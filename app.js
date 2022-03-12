@@ -1,45 +1,48 @@
 const container = document.querySelector('.container');
-const rowDiv = document.createElement('div');
-let pixelFrag = document.createDocumentFragment();
+const containerHeight = 400;
+const containerWidth = 400;
+let gridSize = 100;
 
-console.log(container);
 
 
 
 function createRowDiv () {
-    rowDiv.classList.add('rowDiv');
-    container.appendChild(rowDiv);
-    createPixels();
-      
-}
-
-function createPixels () {
-    let createdPixel;
-    for (let i = 0; i < 10; i++) {
+    let rowFrag = document.createDocumentFragment();
+    for (let i = 0; i < gridSize; i++) {
+        const rowDiv = document.createElement('div');
         
-        const pixel = document.createElement('div');
-        pixel.classList.add('pixel-specs');
-        pixel.textContent = "P";
-        pixelFrag.appendChild(pixel);  
+        rowDiv.classList.add('rowDiv');
+        
+        rowFrag.appendChild(rowDiv);
+        rowDiv.style.height = containerHeight/gridSize + "px";
+        createPixels(rowDiv); 
+        container.appendChild(rowFrag);
+
+        const createdPixels = document.querySelectorAll('.pixel-specs');
+        createdPixels.forEach(element => {
+            element.addEventListener('mouseover', function (e) {
+                element.classList.add('turn-orange');
+                e.stopImmediatePropagation();
+            });
+        });
+        
+        // console.log(createdPixels.length);
     }
-    rowDiv.appendChild(pixelFrag);
-    console.log(rowDiv);
-    createdPixel = document.querySelectorAll('.pixel-specs');
-    console.log(createdPixel.length);
-    console.log("created pixel = " + createdPixel);
-
-   createdPixel.forEach(element => {
-       element.addEventListener('mouseover', function (e) {
-           console.log('uck');
-           element.classList.add('turn-orange');
-           e.stopImmediatePropagation
-       });
-   });
-
 
     
-   
-   
+}
+
+function createPixels (rowDiv) {
+    let pixelFrag = document.createDocumentFragment();
+    
+    for (let i = 0; i < gridSize; i++) {
+        let pixel = document.createElement('div');
+        pixel.classList.add('pixel-specs');
+        pixelFrag.appendChild(pixel);
+        console.log("pixel frag: " + pixelFrag);
+        rowDiv.appendChild(pixelFrag);
+       
+    } 
 
 }
 

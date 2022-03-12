@@ -4,23 +4,26 @@
     flex-direction: column;
     height: 300px;
     width: 300px;
-    background-color: pink;
+    /* background-color: pink; */
+    border: 2px solid black;
 }
 
 /* container for horizontal squares */
 .rowDiv {
     display: flex;
     justify-content: center;
-    background-color: blue;
+    /* background-color: blue; */
     width: 100%;
+    height: 40px;
 
 }
 
 .pixel-specs {
     width: 100%;
     height: 100%;
-    background-color: gray;
-    border: 1px solid red;
+    /* background-color: gray; */
+    /* border: .5px solid red; */
+    flex-basis: 1;
 
 }
 
