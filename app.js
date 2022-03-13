@@ -4,10 +4,9 @@ const containerWidth = 400;
 let gridSize = 10;
 
 
-
-
-function createRowDiv () {
+function createGrid () {
     let rowFrag = document.createDocumentFragment();
+
     for (let i = 0; i < gridSize; i++) {
         const rowDiv = document.createElement('div');
         
@@ -18,18 +17,20 @@ function createRowDiv () {
         createPixels(rowDiv); 
         container.appendChild(rowFrag);
 
-        const createdPixels = document.querySelectorAll('.pixel-specs');
+        //add listener to elements
+        let mouseDown = false
+        document.body.onmousedown = () => (mouseDown = true);
+        document.body.onmouseup = () => (mouseDown = false);
+        let createdPixels = document.querySelectorAll('.pixel');
         createdPixels.forEach(element => {
-            element.addEventListener('mouseover', function (e) {
+            function draw (e) {
+                if (e.type === 'mouseover' && !mouseDown) return
                 element.classList.add('turn-orange');
-                e.stopImmediatePropagation();
-            });
-        });
-        
-        // console.log(createdPixels.length);
-    }
+            }
 
-    
+            element.addEventListener('mouseover', draw);
+        });
+    } 
 }
 
 function createPixels (rowDiv) {
@@ -37,41 +38,21 @@ function createPixels (rowDiv) {
     
     for (let i = 0; i < gridSize; i++) {
         let pixel = document.createElement('div');
-        pixel.classList.add('pixel-specs');
+        pixel.classList.add('pixel');
         pixelFrag.appendChild(pixel);
         console.log("pixel frag: " + pixelFrag);
         rowDiv.appendChild(pixelFrag);
        
     } 
-
 }
 
-// let mouseDown = false
-// document.body.onmousedown = () => (mouseDown = true)
-// document.body.onmouseup = () => (mouseDown = false)
+function clearGrid () {
+    let createdPixels = document.querySelectorAll('.pixel');
+    createdPixels.forEach(element => {
+        element.classList.remove('turn-orange');
+    })
+}
 
-// for (let i = 0; i < size * size; i++) {
-//     const gridElement = document.createElement('div')
-//     gridElement.classList.add("grid-element")
-//     gridElement.addEventListener('mouseover', changeColor)
-//     gridElement.addEventListener('mousedown', changeColor)
-//     grid.appendChild(gridElement)
-//   }
-
-
-// function changeColor(e) {
-//     if (e.type === 'mouseover' && !mouseDown) return
-//     if (currentMode === 'rainbow') {
-//       const randomR = Math.floor(Math.random() * 256)
-//       const randomG = Math.floor(Math.random() * 256)
-//       const randomB = Math.floor(Math.random() * 256)
-//       e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
-//     } else if (currentMode === 'color') {
-//       e.target.style.backgroundColor = currentColor
-//     } else if (currentMode === 'eraser') {
-//       e.target.style.backgroundColor = '#fefefe'
-//     }
-//   }
 
 
 
