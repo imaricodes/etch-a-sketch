@@ -17,15 +17,15 @@
         </div>
    
 
-    <button onclick="createGrid()">click</button>
-    <button onclick="eraseGrid()">clear</button>
+    <!-- <button onclick="createGrid()">click</button> -->
+    <button onclick="eraseGrid()">erase grid</button>
     <div>
         <input type="color" id="color-pick" name="head"
-               value="#e66465" onclick="setColorMode(event)"> 
+               value="#e66465" onclick="resetDrawMode()"> 
         <label for="color-pick">Color Picker</label>
     </div>
-    <button id = "rainbow" onchange="setColorMode(event)">rainbow</button>
-    <button id = "erase" onclick="setColorMode(event)">erase</button>
+    <button id = "rainbow" onclick="setColorMode(event)">rainbow</button>
+    <!-- <button id = "erase" onclick="setColorMode(event)">erase</button> -->
 
     <label for="points">Set Grid Size:</label>
 <input type="range" id="set-size" name="size" min="10" max="50" value = "10" step="10" onchange="createGrid()">

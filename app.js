@@ -1,8 +1,35 @@
 const container = document.querySelector('.container');
 const containerHeight = 400;
 const containerWidth = 400;
-let colorMode = "none";
+let colorMode = "default";
 
+let drawmode = "drawmode";
+
+let drawToggle = document.getElementById('draw-toggle');
+
+
+drawToggle.addEventListener('click',() => {
+
+    if (drawToggle.checked === false) {
+
+        drawmode = "drawmode"; 
+        
+    }
+    else if (drawToggle.checked === true){
+        drawmode = "erasemode";
+    } 
+});
+
+
+function resetDrawMode () {
+    drawToggle.checked = false;
+    drawmode = "drawmode";
+    colorMode = "default";
+}
+
+function resetColorMode(){
+    colorMode = "default";
+}
 
 
 
@@ -12,21 +39,33 @@ document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
 function draw (e) {
+    
+    let colorPick = document.getElementById('color-pick').value;
+    
     if (e.type === 'mouseover' && !mouseDown) return
 
-    if 
-    let colorPick = document.getElementById('color-pick').value;
-    e.target.style.backgroundColor = colorPick;
-    
+    if (drawmode === "drawmode" && colorMode === "default" ) {
+        e.target.style.backgroundColor = colorPick;
+    }
+    else if (drawmode === "drawmode" && colorMode === "rainbow" ) {
+        console.log("magic rainbowmode!");
+        e.target.style.backgroundColor = "#000000";
+        
+    }
+    else if (drawmode === "erasemode") {
+        e.target.style.backgroundColor = "#FFFFFF";
+    }
     
 }
 
 
+
 function createGrid () {
+    resetDrawMode();
     clearGrid();
     let rowFrag = document.createDocumentFragment();
     let gridSize = document.getElementById('set-size').value;
-    console.log(gridSize);
+    
     for (let i = 0; i < gridSize; i++) {
         const rowDiv = document.createElement('div');
         rowDiv.classList.add('rowDiv');
@@ -51,54 +90,33 @@ function createPixels (rowDiv, gridSize) {
 }
 
 function clearGrid () {
+    
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
 }
 
 function eraseGrid () {
-    
+    console.log(drawToggle.checked);
+    resetDrawMode();
     let pixelsToErase = document.querySelectorAll('.pixel');
     pixelsToErase.forEach(element => {
-        console.log(element);
+       
         element.style.backgroundColor = "#FFFFFF";
     })
 }
 
-let input = document.getElementById("color-pick");
+let input = document.getElementById("rainbow");
 function setColorMode (e) {
-
     input.addEventListener('input', function () {
-        colorMode = "draw mode";
-        console.log("draw mode");
         return "draw mode"
     });
 
-    
-    
-    if (e.target.id === "erase") {
-        colorMode = "erase mode"
-        console.log('erase button clicked');
-        console.log(e.target.id);
-        return "erase"  
-    }
-    else if (e.target.id === "rainbow") {
-        console.log('rainbow button clicked');
-        console.log(e.target.id);
-        return "rainbow"  
-    }
-
-    
+    if (e.target.id === "rainbow") {
+        colorMode = "rainbow";
+        
+    } 
 }
-
-let drawToggle = document.getElementById('draw-toggle');
-drawToggle.addEventListener('click',() => {
-
-    if (drawToggle.checked == false) {
-        console.log("it's false");
-    }
-    console.log("boof");
-})
 
 window.onload = () => {
     createGrid();
