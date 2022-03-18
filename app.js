@@ -1,6 +1,6 @@
 const container = document.querySelector('.container');
-const containerHeight = 400;
-const containerWidth = 400;
+const containerHeight = 800;
+const containerWidth = 800;
 let colorMode = "default";
 
 let drawmode = "default";
@@ -26,10 +26,6 @@ function resetDrawMode () {
     drawmode = "default";
     
 }
-
-
-
-
 
 let createdPixels = document.querySelectorAll('.pixel');
 document.body.onmousedown = () => (mouseDown = true);

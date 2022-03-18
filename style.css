@@ -32,20 +32,22 @@ body {
 .controls{
   display: flex;
   flex-direction: column;
+  gap: 20px;
 
 }
 
 .color-settings {
   display: flex;
   flex-direction: column;
+  gap: 20px;
 
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    height: 300px;
-    width: 300px;
+    height: 500px;
+    width: 500px;
     /* background-color: pink; */
     border: 2px solid yellow;
 }
@@ -95,7 +97,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #08d434;
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -113,11 +115,11 @@ body {
   }
   
   input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #cf0808;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #cf0808;
   }
   
   input:checked + .slider:before {
