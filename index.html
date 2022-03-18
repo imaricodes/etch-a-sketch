@@ -10,29 +10,43 @@
     
 </head>
 <body>
-    
-
-        <div class="container">
-           
+    <div class="wrapper">
+        <div class="draw-toggle">
+            <label class="switch">
+                <input type="checkbox" id = 'draw-toggle'>
+                <span class="slider round"></span>
+              </label>
         </div>
+        <div class="main">
+            <div class="controls">
+                <div class="color-settings">                
+                        <label for="color-pick">COLOR</label>
+                        <input type="color" id="color-pick" name="head"
+                               value="#e66465" onclick="resetColorMode()"> 
+                    <button id = "rainbow" onclick="setColorMode(event)">RANDOM RAINBOW</button>
+    
+                
+                </div>
+                <label for="set-size">RESOLUTION</label>
+                <input type="range" id="set-size" name="size" min="10" max="50" value = "10" step="10" onchange="createGrid()">
+                <button onclick="eraseGrid()">CLEAR</button>
+    
+            </div>
+            <div class="container"></div>
+        </div>
+        
+
+    </div>
+
    
 
     <!-- <button onclick="createGrid()">click</button> -->
-    <button onclick="eraseGrid()">erase grid</button>
-    <div>
-        <input type="color" id="color-pick" name="head"
-               value="#e66465" onclick="resetColorMode()"> 
-        <label for="color-pick">Color Picker</label>
-    </div>
-    <button id = "rainbow" onclick="setColorMode(event)">rainbow</button>
+   
+    
     <!-- <button id = "erase" onclick="setColorMode(event)">erase</button> -->
 
-    <label for="points">Set Grid Size:</label>
-<input type="range" id="set-size" name="size" min="10" max="50" value = "10" step="10" onchange="createGrid()">
-<label class="switch">
-    <input type="checkbox" id = 'draw-toggle'>
-    <span class="slider round"></span>
-  </label>
+
+
 </body>
 <script src="/app.js"></script>
 </html>
