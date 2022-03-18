@@ -24,12 +24,10 @@ drawToggle.addEventListener('click',() => {
 function resetDrawMode () {
     drawToggle.checked = false;
     drawmode = "default";
-    colorMode = "default";
+    
 }
 
-function resetColorMode(){
-    colorMode = "default";
-}
+
 
 
 
@@ -41,10 +39,11 @@ let mouseDown = false
 function draw (e) {
     
     let colorPick = document.getElementById('color-pick').value;
-    
+    console.log("color mode: " + colorMode + " drawmode:"  + drawmode)
     if (e.type === 'mouseover' && !mouseDown) return
 
-    if (drawmode === "default" && colorMode === "default" ) {
+    if (drawmode === "default" && colorMode === "default") {
+        
         e.target.style.backgroundColor = colorPick;
     }
     else if (drawmode === "default" && colorMode === "rainbow" ) {
@@ -73,7 +72,8 @@ function createGrid () {
         rowDiv.style.height = containerHeight/gridSize + "px";
         createPixels(rowDiv, gridSize); 
         container.appendChild(rowFrag);         
-    } 
+    }
+    console.log("after grid change: " + colorMode); 
 }
 
 
@@ -106,9 +106,13 @@ function eraseGrid () {
     })
 }
 
+function resetColorMode(){
+    colorMode = "default";
+}
+
 //let input = document.getElementById("rainbow");
 function setColorMode (e) {
-
+    resetDrawMode();
     if (e.target.id === "rainbow") {
         colorMode = "rainbow";
         
