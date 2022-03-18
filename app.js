@@ -3,7 +3,7 @@ const containerHeight = 400;
 const containerWidth = 400;
 let colorMode = "default";
 
-let drawmode = "drawmode";
+let drawmode = "default";
 
 let drawToggle = document.getElementById('draw-toggle');
 
@@ -12,7 +12,7 @@ drawToggle.addEventListener('click',() => {
 
     if (drawToggle.checked === false) {
 
-        drawmode = "drawmode"; 
+        drawmode = "default"; 
         
     }
     else if (drawToggle.checked === true){
@@ -23,7 +23,7 @@ drawToggle.addEventListener('click',() => {
 
 function resetDrawMode () {
     drawToggle.checked = false;
-    drawmode = "drawmode";
+    drawmode = "default";
     colorMode = "default";
 }
 
@@ -34,9 +34,9 @@ function resetColorMode(){
 
 
 let createdPixels = document.querySelectorAll('.pixel');
-let mouseDown = false
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
+let mouseDown = false
 
 function draw (e) {
     
@@ -44,10 +44,10 @@ function draw (e) {
     
     if (e.type === 'mouseover' && !mouseDown) return
 
-    if (drawmode === "drawmode" && colorMode === "default" ) {
+    if (drawmode === "default" && colorMode === "default" ) {
         e.target.style.backgroundColor = colorPick;
     }
-    else if (drawmode === "drawmode" && colorMode === "rainbow" ) {
+    else if (drawmode === "default" && colorMode === "rainbow" ) {
         console.log("magic rainbowmode!");
         e.target.style.backgroundColor = "#000000";
         
@@ -106,11 +106,8 @@ function eraseGrid () {
     })
 }
 
-let input = document.getElementById("rainbow");
+//let input = document.getElementById("rainbow");
 function setColorMode (e) {
-    input.addEventListener('input', function () {
-        return "draw mode"
-    });
 
     if (e.target.id === "rainbow") {
         colorMode = "rainbow";
