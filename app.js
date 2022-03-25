@@ -1,65 +1,11 @@
+window.onload = () => {
+    createGrid();
+  }
+
 const container = document.querySelector('.container');
 const containerHeight = 800;
 const containerWidth = 800;
 
-//DRAWING FUNCTIONS
-let colorMode = "default";
-let drawmode = "default";
-document.body.onmousedown = () => (mouseDown = true);
-document.body.onmouseup = () => (mouseDown = false);
-let mouseDown = false
-
-
-function draw (e) {
-    
-    let colorPick = document.getElementById('color-pick').value;
-   
-    if (e.type === 'mouseover' && !mouseDown) return
-
-    if (drawmode === "default" && colorMode === "default") {
-        
-        e.target.style.backgroundColor = colorPick;
-    }
-    else if (drawmode === "default" && colorMode === "rainbow" ) {
-       
-        e.target.style.backgroundColor = "#000000";
-        
-    }
-    else if (drawmode === "erasemode") {
-        e.target.style.backgroundColor = "#FFFFFF";
-    }   
-}
-
-
-let drawToggle = document.getElementById('draw-toggle');
-drawToggle.addEventListener('click',() => {
-
-    if (drawToggle.checked === false) {
-
-        drawmode = "default"; 
-        
-    }
-    else if (drawToggle.checked === true){
-        drawmode = "erasemode";
-    } 
-});
-
-function setColorMode (e) {
-    resetDrawMode();
-    if (e.target.id === "rainbow") {
-        colorMode = "rainbow";
-        
-    } 
-}
-
-function resetDrawMode () {
-    drawToggle.checked = false;
-    drawmode = "default";  
-}
-
-function resetColorMode(){
-    colorMode = "default";
-}
 
 
 //CREATE GRID
@@ -122,10 +68,84 @@ function clearGrid () {
 }
 
 
+//DRAWING FUNCTIONS
+let colorMode = "default";
+let drawmode = "default";
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
+let mouseDown = false
 
-window.onload = () => {
-    createGrid();
-  }
+
+let drawToggle = document.getElementById('draw-toggle');
+
+
+
+drawToggle.addEventListener('click',() => {
+    console.log("toggle clicked");
+    drawmode = "erasemode";
+    console.log("drawmode after toggle: " + drawmode)    
+    
+    // if (drawToggle.checked === false) {
+        
+    //     drawmode = "default"; 
+        
+    // }
+    // else if (drawToggle.checked === true){
+    //     console.log("'state" + drawToggle.checked)
+    //     drawmode = "erasemode";
+    //     console.log(drawmode);
+    // }        
+    
+    
+
+});
+
+let colorPicker = document.getElementById('color-picker');
+colorPicker.addEventListener('click', useColorPicker);
+
+let rainbowBtn = document.addEventListener('click', rainbowMode)
+
+function rainbowMode (e) {
+    resetDrawMode();
+    if (e.target.id === "rainbow-btn") {
+        colorMode = "rainbow";  
+    } 
+}
+
+
+function draw (e) {
+    console.log("draw mode function draw mode: " + drawmode )
+    let colorPickValue = document.getElementById('color-picker').value;
+   
+    if (e.type === 'mouseover' && !mouseDown) return
+
+    if (drawmode === "default" && colorMode === "default") {
+        
+        e.target.style.backgroundColor = colorPickValue;
+    }
+    else if (drawmode === "default" && colorMode === "rainbow" ) {
+       
+        e.target.style.backgroundColor = "#000000";
+        
+    }
+    else if (drawmode === "erasemode") {
+        e.target.style.backgroundColor = "#FFFFFF";
+    }   
+}
+
+function resetDrawMode () {
+    drawToggle.checked = false;
+    drawmode = "default";  
+}
+
+
+function useColorPicker(){
+    colorMode = "default";
+}
+
+
+
+
 
 
 
