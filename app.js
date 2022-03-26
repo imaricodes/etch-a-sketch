@@ -1,11 +1,8 @@
-window.onload = () => {
-    createGrid();
-  }
+
 
 const container = document.querySelector('.container');
 const containerHeight = 800;
 const containerWidth = 800;
-
 
 
 //CREATE GRID
@@ -23,8 +20,9 @@ function createGrid () {
         rowFrag.appendChild(rowDiv);
         rowDiv.style.height = containerHeight/gridSize + "px";
         createPixels(rowDiv, gridSize); 
-        container.appendChild(rowFrag);         
+        container.appendChild(rowFrag);
     }
+    
 }
 
 
@@ -50,6 +48,7 @@ function changeResolution (){
     let resolutionValue = document.getElementById('resolution-slider').value;
     resolutionDisplay.innerText = resolutionValue + " x " + resolutionValue;
     createGrid(); 
+    
 }
 
 function eraseGrid () {
@@ -67,7 +66,6 @@ function clearGrid () {
     }
 }
 
-
 //DRAWING FUNCTIONS
 let colorMode = "default";
 let drawmode = "default";
@@ -76,34 +74,26 @@ document.body.onmouseup = () => (mouseDown = false);
 let mouseDown = false
 
 
-let drawToggle = document.getElementById('draw-toggle');
+let drawToggle = document.getElementById('draw-erase-switch');
 
 
 
 drawToggle.addEventListener('click',() => {
-    console.log("toggle clicked");
-    drawmode = "erasemode";
-    console.log("drawmode after toggle: " + drawmode)    
     
-    // if (drawToggle.checked === false) {
+    if (drawToggle.checked === false) {
         
-    //     drawmode = "default"; 
+        drawmode = "default"; 
         
-    // }
-    // else if (drawToggle.checked === true){
-    //     console.log("'state" + drawToggle.checked)
-    //     drawmode = "erasemode";
-    //     console.log(drawmode);
-    // }        
-    
-    
-
+    }
+    else if (drawToggle.checked === true){
+        drawmode = "erasemode";
+    }        
 });
 
 let colorPicker = document.getElementById('color-picker');
 colorPicker.addEventListener('click', useColorPicker);
 
-let rainbowBtn = document.addEventListener('click', rainbowMode)
+let rainbowBtn = document.getElementById('rainbow-btn').addEventListener('click', rainbowMode)
 
 function rainbowMode (e) {
     resetDrawMode();
@@ -114,7 +104,6 @@ function rainbowMode (e) {
 
 
 function draw (e) {
-    console.log("draw mode function draw mode: " + drawmode )
     let colorPickValue = document.getElementById('color-picker').value;
    
     if (e.type === 'mouseover' && !mouseDown) return
@@ -142,6 +131,12 @@ function resetDrawMode () {
 function useColorPicker(){
     colorMode = "default";
 }
+
+window.onload = () => {
+    createGrid();
+  }
+
+
 
 
 

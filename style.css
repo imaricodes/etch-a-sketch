@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Poppins:wght@200;300;500;800&display=swap');
 
 *{
-  border: .5px solid black;
+  /* border: .5px solid black; */
 }
 
 
@@ -19,9 +19,13 @@ body {
 
 }
 
-.draw-toggle{
+
+.draw-erase-toggle{
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 40px;
+  font-size: 30px;
 }
 
 .main{
@@ -32,6 +36,8 @@ body {
 .controls{
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  width: 200px;
   
 
 }
@@ -39,8 +45,23 @@ body {
 .color-settings {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
 
+}
+
+label {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+
+}
+
+.grid-settings{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
