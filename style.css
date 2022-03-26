@@ -26,11 +26,13 @@ body {
   align-items: center;
   gap: 40px;
   font-size: 30px;
+  margin-bottom: 30px;
 }
 
 .main{
   display: flex;
   justify-content: center;
+  gap: 60px;
 }
 
 .controls{
@@ -70,7 +72,7 @@ label {
     height: 500px;
     width: 500px;
     /* background-color: pink; */
-    border: 2px solid yellow;
+    border: 2px solid gray;
 }
 
 /* container for horizontal squares */

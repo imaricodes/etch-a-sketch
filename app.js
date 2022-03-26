@@ -113,8 +113,9 @@ function draw (e) {
         e.target.style.backgroundColor = colorPickValue;
     }
     else if (drawmode === "default" && colorMode === "rainbow" ) {
-       
-        e.target.style.backgroundColor = "#000000";
+        let randomColor = Math.floor(Math.random()*16777215).toString(16);
+        console.log(randomColor);
+        e.target.style.backgroundColor = "#"+ randomColor;
         
     }
     else if (drawmode === "erasemode") {
