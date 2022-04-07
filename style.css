@@ -44,8 +44,12 @@ body {
 }
 h2{
   text-align: center;
-
 }
+
+#color-picker{
+  cursor: pointer;
+}
+
 .color-settings {
   display: flex;
   flex-direction: column;
@@ -63,6 +67,7 @@ h2{
 
 .img-rainbow{
   height: 40px;
+  cursor: pointer;
 }
 
 .text-centered{
