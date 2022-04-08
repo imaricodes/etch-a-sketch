@@ -26,8 +26,31 @@ body {
   align-items: center;
   gap: 40px;
   font-size: 30px;
-  margin-bottom: 30px;
+  /* margin-bottom: 20px; */
 }
+
+
+.button3{
+  display:inline-block;
+  padding:0.3em 1.2em;
+  width: 80px;
+  margin:0 0.3em 0.3em 0;
+  border-radius:2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  background-color:#4eb5f1;
+  text-align:center;
+  transition: all 0.2s;
+  cursor: pointer;
+  }
+  .button3:hover{
+   background-color:#c65240;
+  }
+
+
 
 .main{
   display: flex;
@@ -53,16 +76,14 @@ h2{
 .color-settings {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  gap: 20px;
-  margin-bottom: 25px;
+  gap: 15px;
+  margin-bottom: 20px;
 
 }
 .color-mode-chooser{
   display:flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
 }
 
 .img-rainbow{
@@ -73,12 +94,6 @@ h2{
 .text-centered{
   text-align: center;
 }
-/* label {
-  display: flex;
-  gap: 40px;
-  align-items: center;
-
-} */
 
 .grid-settings{
   display: flex;
@@ -87,13 +102,26 @@ h2{
   align-items: center;
 }
 
+#resolution-slider{
+  width: 100%;
+}
+
+.resolution-display, #resolution-slider{
+  margin-bottom: 15px;
+}
+
+.resolution-warning {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     height: 500px;
     width: 500px;
     /* background-color: pink; */
-    border: 2px solid gray;
+    border: 2px solid rgb(0, 0, 0);
 }
 
 /* container for horizontal squares */
