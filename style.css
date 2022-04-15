@@ -32,6 +32,7 @@ body {
 
 .main{
   display: flex;
+  flex-wrap: wrap-reverse;
   justify-content: center;
   gap: 60px;
 }
@@ -123,8 +124,9 @@ h2{
 .container {
     display: flex;
     flex-direction: column;
-    height: 500px;
     width: 500px;
+    flex: none;
+    height: 500px;
     border: 2px solid rgb(0, 0, 0);
 }
 
