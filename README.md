@@ -5,13 +5,8 @@
 
   <p align="center">
     A browser-based drawing application
-    <!-- <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Repo</strong></a>
-    <br /> -->
-    <br /> 
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    
   </p>
+  <a href="https://imaricodes.github.io/etch-a-sketch/">View Demo</a>
 </div>
 
 
@@ -38,8 +33,10 @@ Project Link: [https://github.com/imaricodes/etch-a-sketch.git](https://github.c
 
 - [ ] Add "activate button" to grid size option
 - [ ] Make site responsive (including grid)
-- [ ] Update hover/draw function so pixel can be drawn immediately upon click
+- [ ] Update hover/draw function so pixel can be drawn immediately upon mouse down event
 - [ ] pretty up slider css
+- [ ] Add current color setting indicator
+- [ ] Change cursor when in erase mode
 - [ ] Update README
     - [ ] Add images
 - [ ] create usage documentation?
